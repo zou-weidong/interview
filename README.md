@@ -144,37 +144,10 @@
 8. LinkedHashMap
    双向链表和HashMap实现LinkedHashMap
    
-9. 把反射和动态代理梳理一下，肯定会问spring
-   只需要关注 InvocationHandler 与 Proxy 对象。   
-   
-       /**
-        目的： 该方法负责集中处理动态代理类上的所有方法调用。
-        第一个参数既是代理类实例，
-        第二个参数是被调用的方法对象
-        第三个方法是调用参数。
-        调用处理器根据这三个参数进行预处理或分派到委托类实例上发射执行
-       */
-        public Object invoke(Object proxy, Method method, Object[] args)
-        
-        
-       /**
-        目的： 创建动态代理对象
-        *  loader 类加载器，将字节码加载到JVM并为其定义类对象，然后该类才能使用
-        *  Proxy类与普通类的唯一区别就是其字节码是由JVM在运行时动态生成的而非预存在任意一个.class文件中。
-        */
-        public static Object newProxyInstance(ClassLoader loader,Class<?>[] interfaces,InvocationHandler h)
-        
-        
-        流程机制：
-        1. 通过实现 InvocationHandler 接口创建自己的调用处理器；
-        2. 通过为 Proxy 类指定 ClassLoader 对象和一组 interface 来创建动态代理类；
-        3. 通过反射机制获得动态代理类的构造函数，其唯一参数类型是调用处理器接口类型；
-        4. 通过构造函数创建动态代理类实例，构造时调用处理器对象作为参数被传入。
-        5. 通过代理对象调用目标方法
 
-        动态代理的类已经 extends Proxy，所以只能实现接口。
-        因此才有cglib的需要。
-   
+
+
+
          
     
     

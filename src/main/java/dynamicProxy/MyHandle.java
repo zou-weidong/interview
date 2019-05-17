@@ -17,6 +17,11 @@ public class MyHandle implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         logger.info("动态代理之前");
+        //在这里可以根据method的方式来判断是否要做什么操作
+        //1.根据method的名字  2.method上面的自定义注解
+        String name = method.getName();
+        boolean annotationPresent = method.isAnnotationPresent(LogInfo.class);
+
         return method.invoke(target, args);
     }
 
