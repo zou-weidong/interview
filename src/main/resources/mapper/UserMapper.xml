@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.UserMapper">
+
+    <select id="getById" resultType="mybatis.UserDomain" parameterType="integer">
+        select id as userId,username  as userName,password,phone  from user2
+        where id = #{id};
+    </select>
+</mapper>
